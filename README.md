@@ -1,5 +1,8 @@
 # python-challenge
 
+## Both
+os.path.dirname() function on line 7 is from Python documentation: https://docs.python.org/3/library/os.path.html  
+
 ## PyBank
 round() function on line 53 is from Python documentation: https://docs.python.org/3/library/functions.html#round  
 

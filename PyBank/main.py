@@ -2,9 +2,9 @@
 import os
 import csv
 
-# File paths
-#path = "C:/Users/matth/Desktop/BootCamp/Week_4/Module_Challenge_3/PyBank/Resources/budget_data.csv"
-#txtPath = "C:/Users/matth/Desktop/BootCamp/Week_4/Module_Challenge_3/PyBank/budget_data_output.txt"
+# File path
+# Used from Python documentation https://docs.python.org/3/library/os.path.html
+path = os.path.dirname(os.path.abspath(__file__))
 
 # Variables
 totalMonths = 0
@@ -17,7 +17,7 @@ greatestDecrease = 0
 greatestDecreaseMonth = "None"
 
 # Open CSV
-with open("Resources/budget_data.csv", encoding='UTF-8') as csvFile:
+with open(f"{path}\\Resources\\budget_data.csv", encoding='UTF-8') as csvFile:
     # Read CSV
     csvReader = csv.reader(csvFile, delimiter=",")
 
@@ -62,7 +62,7 @@ print(f"Greatest Increase in Profits: {greatestIncreaseMonth} (${greatestIncreas
 print(f"Greatest Decrease in Profits: {greatestDecreaseMonth} (${greatestDecrease})")
 
 # Write results to text file
-with open("budget_data_output.txt", 'w') as txtFile:
+with open(f"{path}\\budget_data_output.txt", 'w') as txtFile:
     txtFile.write("Financial Analysis\n")
     txtFile.write("----------------------------\n")
     txtFile.write(f"Total months: {totalMonths}\n")

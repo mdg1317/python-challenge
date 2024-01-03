@@ -2,16 +2,16 @@
 import os
 import csv
 
-# File paths
-#path = "C:/Users/matth/Desktop/BootCamp/Week_4/Module_Challenge_3/PyPoll/Resources/election_data.csv"
-#txtPath = "C:/Users/matth/Desktop/BootCamp/Week_4/Module_Challenge_3/PyPoll/election_data_output.txt"
+# File path
+# Used from Python documentation https://docs.python.org/3/library/os.path.html
+path = os.path.dirname(os.path.abspath(__file__))
 
 # Variables
 totalVotes = 0
 candidateData = []
 
 # Open CSV
-with open("Resources/election_data.csv", encoding='UTF-8') as csvFile:
+with open(f"{path}\\Resources\\election_data.csv", encoding='UTF-8') as csvFile:
     # Read CSV
     csvReader = csv.reader(csvFile, delimiter=",")
 
@@ -43,12 +43,12 @@ print("-------------------------")
 for i in range(len(candidateData)):
     print(f"{candidateData[i]["name"]}: {round((candidateData[i]["votes"] / totalVotes) * 100, 3)}% ({candidateData[i]["votes"]})")
 print("-------------------------")
-# lambda function used from https://stackoverflow.com/questions/5320871/how-to-find-the-min-max-value-of-a-common-key-in-a-list-of-dicts
+# max() function used from https://stackoverflow.com/questions/5320871/how-to-find-the-min-max-value-of-a-common-key-in-a-list-of-dicts
 print(f"Winner: {max(candidateData, key=lambda x:x["votes"])["name"]}")
 print("-------------------------")
 
 # Write results to text file
-with open("election_data_output.txt", 'w') as txtFile:
+with open(f"{path}\\election_data_output.txt", 'w') as txtFile:
     txtFile.write("Election Results\n")
     txtFile.write("-------------------------\n")
     txtFile.write(f"Total votes: {totalVotes}\n")
@@ -56,6 +56,6 @@ with open("election_data_output.txt", 'w') as txtFile:
     for i in range(len(candidateData)):
         txtFile.write(f"{candidateData[i]["name"]}: {round((candidateData[i]["votes"] / totalVotes) * 100, 3)}% ({candidateData[i]["votes"]})\n")
     txtFile.write("-------------------------\n")
-    # lambda function used from https://stackoverflow.com/questions/5320871/how-to-find-the-min-max-value-of-a-common-key-in-a-list-of-dicts
+    # max() function used from https://stackoverflow.com/questions/5320871/how-to-find-the-min-max-value-of-a-common-key-in-a-list-of-dicts
     txtFile.write(f"Winner: {max(candidateData, key=lambda x:x["votes"])["name"]}\n")
     txtFile.write("-------------------------\n")

@@ -55,7 +55,7 @@ with open(f"{path}\\Resources\\budget_data.csv", encoding='UTF-8') as csvFile:
 # Print results to terminal
 print("Financial Analysis")
 print("----------------------------")
-print(f"Total months: {totalMonths}")
+print(f"Total Months: {totalMonths}")
 print(f"Total: ${totalProfit}")
 print(f"Average Change: ${averageChange}")
 print(f"Greatest Increase in Profits: {greatestIncreaseMonth} (${greatestIncrease})")

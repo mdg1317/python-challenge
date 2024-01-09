@@ -38,7 +38,7 @@ with open(f"{path}\\Resources\\election_data.csv", encoding='UTF-8') as csvFile:
 # Print results to terminal
 print("Election Results")
 print("-------------------------")
-print(f"Total votes: {totalVotes}")
+print(f"Total Votes: {totalVotes}")
 print("-------------------------")
 for i in range(len(candidateData)):
     print(f"{candidateData[i]["name"]}: {round((candidateData[i]["votes"] / totalVotes) * 100, 3)}% ({candidateData[i]["votes"]})")
